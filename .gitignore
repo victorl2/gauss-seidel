@@ -36,6 +36,8 @@ MANIFEST
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
+.vscode
+pyvenv.cfg
 
 # Unit test / coverage reports
 htmlcov/
