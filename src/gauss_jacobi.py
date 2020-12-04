@@ -1,6 +1,7 @@
 from pprint import pprint
 from numpy import array, zeros, diag, diagflat, dot
 
+
 def jacobi(A,b,N=25,x=None):
     """Solves the equation Ax=b via the Jacobi iterative method."""
     # Constroi um chute inicial se necessário                                                                                                                                                          
