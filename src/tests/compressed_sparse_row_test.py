@@ -1,4 +1,3 @@
-import pytest
 import sys, os
 from numpy import array
 from compressed_sparse_row import CSR
