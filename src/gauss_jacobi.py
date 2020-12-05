@@ -3,38 +3,37 @@ from pprint import pprint
 from numpy import array, zeros, diag, diagflat, dot
 
 
-def jacobi(A,b,N=25,x=None):
+def jacobi(A,b,N=3,x=None):
     """Solves the equation Ax=b via the Jacobi iterative method."""
     # Generate initial guess if needed                                                                                                                                                      
-    if x is None:
-        x = zeros(len(A[0]))
 
     matrix_a = CSR(A)
+    new_solution = []
 
     for iter in range(N):
         print("Iteration ", iter)
         for i in range(len(x)):
             R = []
             R.extend(x[0:i])
-            R.extend(x[i:len(x)])
+            R.extend(x[i+1:len(x)])
 
             aux_a = matrix_a.get_row(i+1)
             M = []
             M.extend(aux_a[0:i])
-            M.extend(aux_a[i:len(x)])
+            M.extend(aux_a[i+1:len(x)])
 
-            print(aux_a)
-            print(M)
-            print(R)
+            new_value = (b[i] + dot(R,M))/aux_a[i]
 
-            new_value = (b[i] + dot(R,M))
-            print(">x"+ str((i+1))," = ",  new_value)
-            x[i] = new_value
+            print('sum:', b[i], R, M,'divide', aux_a[i] , ' = ', new_value)
+            print(10*'#')
+            new_solution.append(new_value)
+        x = [value for value in new_solution]
+        new_solution = []
     return x
     
-A = array([[5,-1,2],[3,8,-2], [1,1,4]])
-b = array([12,-25,6])
-guess = array([0,0,0])
+A = array([[2.0, 1.0],[8.0,-1]])
+b = array([11.0,29.0])
+guess = [0.0,0.0]
 
 sol = jacobi(A,b,N=25,x=guess)
 

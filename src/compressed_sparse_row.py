@@ -19,8 +19,11 @@ class CSR:
                 return self.v_aa[i]
         return 0
     
+    def get_diagonal_values(self):
+        return [self.get_value(i,i) for i in range(1, self.size_rows + 1)]
+    
     def get_row(self, row):
-        return [self.get_value(row,i) for i in range(1, self.size_cols)]
+        return [self.get_value(row,i) for i in range(1, self.size_cols + 1)]
 
     def get_dimmension(self):
         return (self.size_rows, self.size_cols)
