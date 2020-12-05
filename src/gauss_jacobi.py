@@ -1,7 +1,5 @@
 from compressed_sparse_row import CSR
-from pprint import pprint
-from numpy import array, zeros, concatenate, arange, copy
-
+from numpy import zeros, concatenate, arange, copy
 
 def jacobi(A,b,N=3,x=None):
     """Solves the equation Ax=b via the Jacobi iterative method."""

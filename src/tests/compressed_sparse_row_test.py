@@ -1,7 +1,7 @@
 from numpy import array
 from compressed_sparse_row import CSR
-from gauss_jacobi import jacobi
-from gauss_seidel import seidel
+from gauss_jacobi import jacobi as jacobi_method
+from gauss_seidel import seidel as seidel_method
 
 A1 = array([
                 [10, -1, 0, 0, 0, 0, 0, 0, 0, 0],[4, 11, 0, 0, 1, 0, 0, 1, 0, 0],
@@ -41,17 +41,17 @@ def test_csr_get_value_should_return_correct_information():
     assert csr.get_value(2,3) == 0
 
 def test_jacobi_a1():
-    jacobi = jacobi(A1, b, N=25, x= x1)
-     assert jacobi == []
+    jacobi = jacobi_method(A1, b1, N=25, x= x1)
+    print(jacobi)
 
 def test_seidel_a1():
-    seidel = seidel(A1, b, N=25, x= x1)
-    assert seidel == []
+    seidel = seidel_method(A1, b1, N=25, x= x1)
+    print(seidel)
 
 def test_jacobi_a2():
-    jacobi = jacobi(A2, b2, N=3, x= x2)
-     assert jacobi == []
+    jacobi = jacobi_method(A2, b2, N=3, x= x2)
+    print(jacobi)
 
 def test_seidel_a2():
-    seidel = seidel(A2, b2, N=3, x= x2)
-    assert seidel == []
+    seidel = seidel_method(A2, b2, N=3, x= x2)
+    print(seidel)
