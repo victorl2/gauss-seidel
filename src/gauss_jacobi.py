@@ -20,18 +20,3 @@ def jacobi(A,b,N=3,x=None):
             result[i] /= matrix_a.get_value(i+1, i+1)
         x = copy(result)
     return result
-    
-A = array([[5.0,-2.0, 3.0],[-3.0,9.0, 1.0],[2.0,-1.0, -7.0]])
-b = array([-1.0, 2.0, 3.0])
-guess = array([0.0,0.0, 0.0])
-
-sol = jacobi(A,b,N=25,x=guess)
-
-print("A:")
-pprint(A)
-
-print("b:")
-pprint(b)
-
-print("vetor solucao x:")
-pprint(sol)

@@ -18,18 +18,3 @@ def seidel(A,b,N=25,x=None):
                 result[i] -= matrix_a.get_value(i+1, j+1)*result[j]
             result[i] /= matrix_a.get_value(i+1, i+1)
     return result
-    
-A = array([[5.0,-2.0, 3.0],[-3.0,9.0, 1.0],[2.0,-1.0, -7.0]])
-b = array([-1.0, 2.0, 3.0])
-guess = array([0.0,0.0, 0.0])
-
-sol = seidel(A,b,N=25,x=guess)
-
-print("A:")
-pprint(A)
-
-print("b:")
-pprint(b)
-
-print("vetor solucao x:")
-pprint(sol)
